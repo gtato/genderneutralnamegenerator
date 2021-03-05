@@ -3,6 +3,8 @@ package genderneutralnamegenerator
 import (
 	"io/ioutil"
 	"math/rand"
+	"path"
+	"runtime"
 	"strings"
 	"time"
 )
@@ -18,7 +20,9 @@ func (ng *NameGenerator) GenerateName() string {
 }
 
 func NewNameGenerator() *NameGenerator {
-	dat, err := ioutil.ReadFile("names")
+	_, filename, _, _ := runtime.Caller(0)
+	namesFile := path.Join(path.Dir(filename), "names")
+	dat, err := ioutil.ReadFile(namesFile)
 	check(err)
 	names := strings.Split(string(dat), "\n")
 	nameGenerator := &NameGenerator{
