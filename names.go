@@ -107,7 +107,6 @@ var (
 		"Zohar",
 		"Dian",
 		"Eka",
-		"",
 		"Aki",
 		"Akira",
 		"Aoi",
